@@ -3,71 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>MineCraft Mod Description</title>
-<style>
-body {
-  font-family: sans-serif;
-  margin: 0;
-  background: #dfe3ff;
-}
-
-/* 左側メニュー */
-.sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 250px;
-  height: 100%;
-  background: #222;
-  color: white;
-  padding-top: 60px;
-  transform: translateX(-250px);
-  transition: 0.3s;
-  z-index: 1000;
-}
-
-.sidebar a {
-  display: block;
-  padding: 15px;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.sidebar a:hover {
-  background: #444;
-}
-
-/* ハンバーガーボタン */
-.menu-btn {
-  position: fixed;
-  left: 10px;
-  top: 10px;
-  font-size: 32px;
-  cursor: pointer;
-  color: #333;
-  z-index: 1100;
-}
-
-/* メインコンテンツ */
-.content {
-  padding: 20px;
-  margin-left: 20px;
-  transition: margin-left 0.3s;
-}
-
-.section {
-  background: white;
-  padding: 25px;
-  margin: 30px auto;
-  border-radius: 12px;
-  max-width: 850px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-}
-
-.section h2 {
-  margin-top: 0;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 
 <script>
 function toggleMenu() {
@@ -83,14 +19,12 @@ function toggleMenu() {
   }
 }
 </script>
-
 </head>
 <body>
 
-<!-- ハンバーガーメニュー -->
+<!-- 共通ハンバーガー -->
 <div class="menu-btn" onclick="toggleMenu()">☰</div>
 
-<!-- 左側メニュー -->
 <div id="sidebar" class="sidebar">
   <a href="home.html">🔧 MOD概要</a>
   <a href="modlist.html">📦 MOD一覧</a>
@@ -103,17 +37,60 @@ function toggleMenu() {
 
 <h1>マイクラMOD 説明ページ</h1>
 
-<div id="overview" class="section">
+<!-- サイト説明 -->
+<div class="section">
   <h2>🔧 MOD概要</h2>
-  <p>MODとは、有志のプレイヤーやクリエイターが作成した拡張プログラム・改造データのこと。</p>
-  <p>アイテム・ブロック・モブの追加: </p>
-  <p>新しい武器や防具、家具、見たことのない生物（モンスターなど）を追加します。</p>
-  <p>グラフィック（影MOD・テクスチャ）: </p>
-  <p>光と影の表現をリアルにしたり、ブロックの質感を高めたりして、マイクラの景色を劇的に美しく変化させます。</p>
-  <p>便利機能の追加: </p>
-  <p>アイテムの所持数を一目でわかるようにしたり、ミニマップを表示したりして、冒険や建築を快適にします。</p>
-  <p>工業化・魔術: </p>
-  <p>自動でアイテムを精錬する機械を作ったり、魔法を使えるようにしたりと、ゲームのシステムを大きく拡張します。</p>
+
+  <p>
+    MODとは、有志のプレイヤーやクリエイターが作成した  
+    <strong>拡張プログラム・改造データ</strong>のことです。  
+    Minecraft に新しい要素を追加したり、便利機能を加えたり、  
+    グラフィックを強化したりして、ゲーム体験を大きく広げます。
+  </p>
+
+  <h3>🧱 アイテム・ブロック・モブの追加</h3>
+  <p>
+    新しい武器や防具、家具、見たことのないモンスターなど、  
+    ゲームに新しい要素を追加できます。
+  </p>
+
+  <h3>🌄 グラフィック（影MOD・テクスチャ）</h3>
+  <p>
+    光と影の表現をリアルにしたり、ブロックの質感を高めたりして、  
+    マイクラの景色を劇的に美しく変化させます。
+  </p>
+
+  <h3>🧭 便利機能の追加</h3>
+  <p>
+    アイテムの所持数を見やすくしたり、ミニマップを表示したり、  
+    冒険や建築を快適にする機能を追加できます。
+  </p>
+
+  <h3>⚙ 工業化・魔術</h3>
+  <p>
+    自動でアイテムを精錬する機械を作ったり、魔法を使えるようにしたり、  
+    ゲームシステムを大きく拡張することができます。
+  </p>
+</div>
+
+
+<!-- 案内カード -->
+<div class="section">
+  <h2>📦 MOD一覧</h2>
+  <p>追加したMODの一覧を確認できます。</p>
+  <a href="modlist.html">➡ 開く</a>
+</div>
+
+<div class="section">
+  <h2>🛠 開発環境構築</h2>
+  <p>Minecraft Forge や MOD開発環境のセットアップ手順をまとめています。</p>
+  <a href="environment.html">➡ 開く</a>
+</div>
+
+<div class="section">
+  <h2>🧱 MOD開発（ブロック）</h2>
+  <p>ブロック追加のコード例や実装手順をまとめています。</p>
+  <a href="blockdev.html">➡ 開く</a>
 </div>
 
 </div>
