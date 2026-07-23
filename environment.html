@@ -54,7 +54,10 @@ function toggleMenu() {
     </a>
   </p>
   <p>
-    その時に、今回の開発作業で使用するフォルダを作成します。
+    例: D:\6_Dev\Mods (合わせる必要はない)
+  </p>
+  <p>
+    その時に、自分のエクスプローラー上に今回の開発作業で使用するフォルダを作成します。
   </p>
 
   <h3>② Java 17 が入っているか確認</h3>
@@ -65,19 +68,31 @@ function toggleMenu() {
   <h3>③ IDE（統合開発環境）のインストール</h3>
   <p>IntelliJ IDEA を①の中のidea-2026.1.3.exeからインストールします。</p>
 
-  <!-- 画像を追加する場所 -->
+  <p>画像のようにチェック</p>
   <img src="images/Env_1-intellij.png" alt="画像のようにチェック">
+  <p>空き容量があるドライブを自分で選択する。どこでもOK</p>
+  <p>例: F:\JetBrains\IntelliJ IDEA 2026.1.3 (合わせる必要はない)</p>
   <img src="images/Env_2-intellij.png" alt="空き容量があるドライブを自分で選択してOK">
+  <p>実行にチェックが入っていることを確認して、完了</p>
   <img src="images/Env_3-intellij.png" alt="実行にチェックが入っていることを確認して、完了">
 
   <h3>④ Minecraft Forge MDK のインストール</h3>
-  <p>①の中のforge-1.20.1-47.4.13-mdk.zipから解凍します。</p>
+  <p>①の中のforge-1.20.1-47.4.13-mdk.zipを①で作ったエクスプローラー上で解凍します。</p>
+  <p>例: D:\6_Dev\Mods\forge-1.20.1-47.4.13-mdk</p>
 
   <h3>⑤ IntelliJ でプロジェクトを開く</h3>
   <ol>
+    <li>日本語設定に変更</li>
+    <img src="images/Env_4-intellij_JP.png" alt="setting">
+    <img src="images/Env_5-intellij_JP.png" alt="日本語">
+    
     <li>IntelliJ → Open → MDKフォルダを選択</li>
+    <img src="images/Env_6-intellij_PJ.png" alt="PJ1">
+    <img src="images/Env_7-intellij_PJ.png" alt="PJ2">
+    <img src="images/Env_8-intellij_PJ.png" alt="PJ3">
     <li>Trust Project</li>
     <li>JDK を Java17 に設定</li>
+    <img src="images/Env_9-intellij_Java.png" alt="Java">
     <li>Gradle → genIntellijRuns を実行</li>
     <li>runClient で起動確認</li>
   </ol>
