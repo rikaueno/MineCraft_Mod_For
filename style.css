@@ -1,0 +1,71 @@
+/* 全体の背景とフォント */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #dfe3ff;
+}
+
+/* 左側メニュー（共通） */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background: #222;
+  color: white;
+  padding-top: 60px;
+  transform: translateX(-250px);
+  transition: 0.3s;
+  z-index: 1000;
+}
+
+.sidebar a {
+  display: block;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.sidebar a:hover {
+  background: #444;
+}
+
+/* ハンバーガーボタン（共通） */
+.menu-btn {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  font-size: 32px;
+  cursor: pointer;
+  color: #333;
+  z-index: 1100;
+}
+
+/* メインコンテンツ（共通） */
+.content {
+  padding: 20px;
+  margin-left: 20px;
+  transition: margin-left 0.3s;
+}
+
+/* セクション（カード） */
+.section {
+  background: white;
+  padding: 25px;
+  margin: 30px auto;
+  border-radius: 12px;
+  max-width: 850px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.section h2 {
+  margin-top: 0;
+}
+
+/* 画像 */
+img {
+  max-width: 100%;
+  border-radius: 10px;
+}
