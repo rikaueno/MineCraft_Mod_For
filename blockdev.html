@@ -1,16 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css">
 <meta charset="UTF-8">
 <title>MOD開発（ブロック）</title>
 <link rel="stylesheet" href="style.css">
+
+<script>
+function toggleMenu() {
+  const sidebar = document.getElementById("sidebar");
+  const content = document.getElementById("content");
+
+  if (sidebar.style.transform === "translateX(0px)") {
+    sidebar.style.transform = "translateX(-250px)";
+    content.style.marginLeft = "20px";
+  } else {
+    sidebar.style.transform = "translateX(0px)";
+    content.style.marginLeft = "270px";
+  }
+}
+</script>
 </head>
 <body>
 
+<!-- 共通ハンバーガーメニュー -->
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<div id="sidebar" class="sidebar">
+  <a href="home.html">🔧 MOD概要</a>
+  <a href="modlist.html">📦 MOD一覧</a>
+  <a href="environment.html">🛠 開発環境構築</a>
+  <a href="blockdev.html">🧱 MOD開発（ブロック）</a>
+</div>
+
+<!-- ページ内容 -->
+<div id="content" class="content">
+
 <h1>🧱 MOD開発（ブロック）</h1>
 
-<p>ここにブロック追加の手順を記載します。</p>
+<div class="section">
+  <h2>ブロック追加の手順</h2>
+  <p>ここにブロック追加の手順を記載します。</p>
+</div>
+
+</div>
 
 </body>
 </html>
