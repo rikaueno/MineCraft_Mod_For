@@ -15,7 +15,7 @@ async function check() {
   const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
   // 正しいハッシュ（ここに本物のパスワードのハッシュ値を入れる）
-  const correctHash = "ここにハッシュ値を入れる";
+  const correctHash = "c672e96a1152305d98be2557160df84dfaf13b0ed2ca2bc99997c4c2c350d0b3";
 
   if (hashHex === correctHash) {
     document.getElementById("login").style.display = "none";
@@ -35,8 +35,8 @@ async function check() {
 </div>
 
 <div id="content" style="display:none;">
-  <h1>ようこそ、友達専用サイトへ</h1>
-  <p>ここに写真や日記やリンクを置けるよ。</p>
+  <h1>ようこそ、専用サイトへ</h1>
+  <p>マイクラ用。</p>
 </div>
 
 </body>
