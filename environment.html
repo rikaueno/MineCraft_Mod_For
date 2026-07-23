@@ -1,48 +1,61 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>開発環境構築</title>
-<link rel="stylesheet" href="style.css">
-
-<script>
-function toggleMenu() {
-  const sidebar = document.getElementById("sidebar");
-  const content = document.getElementById("content");
-
-  if (sidebar.style.transform === "translateX(0px)") {
-    sidebar.style.transform = "translateX(-250px)";
-    content.style.marginLeft = "20px";
-  } else {
-    sidebar.style.transform = "translateX(0px)";
-    content.style.marginLeft = "270px";
-  }
-}
-</script>
-</head>
-<body>
-
-<!-- 共通ハンバーガーメニュー -->
-<div class="menu-btn" onclick="toggleMenu()">☰</div>
-
-<div id="sidebar" class="sidebar">
-  <a href="home.html">🔧 MOD概要</a>
-  <a href="modlist.html">📦 MOD一覧</a>
-  <a href="environment.html">🛠 開発環境構築</a>
-  <a href="blockdev.html">🧱 MOD開発（ブロック）</a>
-</div>
-
-<!-- ページ内容 -->
-<div id="content" class="content">
-
-<h1>🛠 開発環境構築</h1>
-
 <div class="section">
-  <h2>開発環境構築の手順</h2>
-  <p>ここに開発環境構築の手順を記載します。</p>
-</div>
+  <h2>🛠 開発環境構築（Minecraft 1.20.1）</h2>
 
-</div>
+  <p>
+    このページでは、Minecraft 1.20.1 用 MOD を開発するための環境構築手順をまとめています。
+    Java の準備から Forge MDK のセットアップ、IntelliJ でのプロジェクト起動までを順番に説明します。
+  </p>
 
-</body>
-</html>
+  <h3>① Minecraft 1.20.1 用インストーラーのダウンロード</h3>
+  <p>
+    以下のリンクから、1.20.1 用の Installer 一式をダウンロードします。
+  </p>
+  <p>
+    <a href="https://drive.google.com/drive/folders/1QZbWzUZYpkoHlulhPkvnwaSdCWBs0BKP?usp=sharing" target="_blank">
+      ➡ Minecraft 1.20.1 Installer（Google Drive）
+    </a>
+  </p>
+
+  <h3>② Java 17 が入っているか確認</h3>
+  <p>コマンドプロンプト（CMD）を開き、以下を入力します。</p>
+  <pre>java -version</pre>
+  <p>
+    Java 17 が表示されない場合は、Eclipse Temurin などから Java 17 をインストールしてください。
+  </p>
+
+  <h3>③ IDE（統合開発環境）のインストール</h3>
+  <p>
+    MOD開発には IntelliJ IDEA を推奨します。VSCode でも可能ですが、IntelliJ の方が ForgeGradle との相性が良いです。
+  </p>
+
+  <p>以下に IDE の例を示します（画像を追加予定）：</p>
+
+  <!-- 画像を追加する場所 -->
+  <img src="images/intellij.png" alt="IntelliJ IDEA" />
+  <img src="images/vscode.png" alt="VSCode" />
+  <img src="images/eclipse.png" alt="Eclipse" />
+
+  <h3>④ Minecraft Forge MDK のインストール</h3>
+  <p>
+    Forge 公式サイトから、Minecraft 1.20.1 用の <strong>MDK（Mod Development Kit）</strong> をダウンロードします。
+  </p>
+  <p>解凍すると、以下のファイルが含まれています：</p>
+  <ul>
+    <li>build.gradle</li>
+    <li>gradlew / gradlew.bat</li>
+    <li>src/main/java（ExampleMod）</li>
+    <li>src/main/resources</li>
+  </ul>
+
+  <h3>⑤ IntelliJ でプロジェクトを開く</h3>
+  <p>IntelliJ を起動し、以下の手順で Forge MDK を開きます。</p>
+  <ol>
+    <li>「Open」から MDK フォルダを選択</li>
+    <li>「Trust Project」を押す</li>
+    <li>JDK を Java 17 に設定</li>
+    <li>Gradle タブ → <strong>genIntellijRuns</strong> を実行</li>
+    <li><strong>runClient</strong> を実行して Minecraft が起動するか確認</li>
+  </ol>
+
+  <p>ここまでできれば、MOD開発の準備は完了です。</p>
+</div>
