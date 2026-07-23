@@ -3,6 +3,28 @@
 <head>
 <meta charset="UTF-8">
 <title>Friends Only</title>
+<script>
+async function check() {
+  const input = document.getElementById("pw").value;
+
+  // 入力されたパスワードをハッシュ化
+  const encoder = new TextEncoder();
+  const data = encoder.encode(input);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+  // 正しいハッシュ（ここに本物のパスワードのハッシュ値を入れる）
+  const correctHash = "ここにハッシュ値を入れる";
+
+  if (hashHex === correctHash) {
+    document.getElementById("login").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  } else {
+    alert("パスワードが違うよ");
+  }
+}
+</script>
 </head>
 <body>
 
@@ -16,18 +38,6 @@
   <h1>ようこそ、友達専用サイトへ</h1>
   <p>ここに写真や日記やリンクを置けるよ。</p>
 </div>
-
-<script>
-function check() {
-  const pw = document.getElementById("pw").value;
-  if (pw === "justpass") {
-    document.getElementById("login").style.display = "none";
-    document.getElementById("content").style.display = "block";
-  } else {
-    alert("パスワードが違うよ");
-  }
-}
-</script>
 
 </body>
 </html>
