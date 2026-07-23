@@ -17,7 +17,7 @@ body {
   top: 0;
   width: 250px;
   height: 100%;
-  background: #222; /* 少し濃い色に変更 */
+  background: #222;
   color: white;
   padding-top: 60px;
   transform: translateX(-250px);
@@ -61,16 +61,11 @@ body {
   margin: 30px auto;
   border-radius: 12px;
   max-width: 850px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2); /* カードを強調 */
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
 .section h2 {
   margin-top: 0;
-}
-
-img {
-  max-width: 100%;
-  border-radius: 10px;
 }
 </style>
 
@@ -84,14 +79,9 @@ function toggleMenu() {
     content.style.marginLeft = "20px";
   } else {
     sidebar.style.transform = "translateX(0px)";
-    content.style.marginLeft = "270px"; /* メニュー開いたら右にずらす */
+    content.style.marginLeft = "270px";
   }
 }
-
-// ページ読み込み時に overview に移動
-window.onload = function() {
-  location.hash = "#overview";
-};
 </script>
 
 </head>
@@ -102,14 +92,10 @@ window.onload = function() {
 
 <!-- 左側メニュー -->
 <div id="sidebar" class="sidebar">
-  <a href="#overview">🔧 MOD概要</a>
-  <a href="#screenshot">📸 スクリーンショット</a>
-  <a href="#items">📦 追加アイテム</a>
-  <a href="#blocks">🧱 追加ブロック</a>
-  <a href="#recipes">🧪 レシピ一覧</a>
-  <a href="#install">📥 導入方法</a>
-  <a href="#notes">⚠ 注意事項</a>
-  <a href="#history">📝 更新履歴</a>
+  <a href="home.html">🔧 MOD概要</a>
+  <a href="modlist.html">📦 MOD一覧</a>
+  <a href="environment.html">🛠 開発環境構築</a>
+  <a href="blockdev.html">🧱 MOD開発（ブロック）</a>
 </div>
 
 <!-- メインコンテンツ -->
@@ -119,54 +105,11 @@ window.onload = function() {
 
 <div id="overview" class="section">
   <h2>🔧 MOD概要</h2>
-  <p>このMODは、りかが開発している Minecraft 用の追加MODです。</p>
-</div>
-
-<div id="screenshot" class="section">
-  <h2>📸 スクリーンショット</h2>
-  <img src="images/sample.png" alt="スクリーンショット">
-</div>
-
-<div id="items" class="section">
-  <h2>📦 追加アイテム</h2>
-  <ul>
-    <li>Magic Stone（魔法の石）</li>
-    <li>Super Pickaxe（高速ツルハシ）</li>
-  </ul>
-</div>
-
-<div id="blocks" class="section">
-  <h2>🧱 追加ブロック</h2>
-  <ul>
-    <li>Light Block（光るブロック）</li>
-  </ul>
-</div>
-
-<div id="recipes" class="section">
-  <h2>🧪 レシピ一覧</h2>
-  <ul>
-    <li>Magic Stone → 石 + ダイヤ + エンダーパール</li>
-  </ul>
-</div>
-
-<div id="install" class="section">
-  <h2>📥 導入方法</h2>
-  <ol>
-    <li>Forge 1.20.1 をインストール</li>
-    <li>mods フォルダに jar を入れる</li>
-  </ol>
-</div>
-
-<div id="notes" class="section">
-  <h2>⚠ 注意事項</h2>
-  <p>競合情報などを書く。</p>
-</div>
-
-<div id="history" class="section">
-  <h2>📝 更新履歴</h2>
-  <ul>
-    <li>v0.1 初期リリース</li>
-  </ul>
+  <p>MODとは、有志のプレイヤーやクリエイターが作成した拡張プログラム・改造データのこと。</p>
+  <p>アイテム・ブロック・モブの追加: 新しい武器や防具、家具、見たことのない生物（モンスターなど）を追加します。</p>
+  <p>グラフィック（影MOD・テクスチャ）: 光と影の表現をリアルにしたり、ブロックの質感を高めたりして、マイクラの景色を劇的に美しく変化させます。</p>
+  <p>便利機能の追加: アイテムの所持数を一目でわかるようにしたり、ミニマップを表示したりして、冒険や建築を快適にします。</p>
+  <p>工業化・魔術: 自動でアイテムを精錬する機械を作ったり、魔法を使えるようにしたりと、ゲームのシステムを大きく拡張します。</p>
 </div>
 
 </div>
