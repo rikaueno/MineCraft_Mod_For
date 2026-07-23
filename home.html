@@ -7,7 +7,7 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  background: #eef0ff;
+  background: #dfe3ff;
 }
 
 /* 左側メニュー */
@@ -17,7 +17,7 @@ body {
   top: 0;
   width: 250px;
   height: 100%;
-  background: #333;
+  background: #222; /* 少し濃い色に変更 */
   color: white;
   padding-top: 60px;
   transform: translateX(-250px);
@@ -30,6 +30,7 @@ body {
   padding: 15px;
   color: white;
   text-decoration: none;
+  font-size: 18px;
 }
 
 .sidebar a:hover {
@@ -41,7 +42,7 @@ body {
   position: fixed;
   left: 10px;
   top: 10px;
-  font-size: 30px;
+  font-size: 32px;
   cursor: pointer;
   color: #333;
   z-index: 1100;
@@ -50,16 +51,21 @@ body {
 /* メインコンテンツ */
 .content {
   padding: 20px;
+  margin-left: 20px;
   transition: margin-left 0.3s;
 }
 
 .section {
   background: white;
-  padding: 20px;
-  margin: 20px auto;
-  border-radius: 10px;
-  max-width: 800px;
-  box-shadow: 0 0 10px #ccc;
+  padding: 25px;
+  margin: 30px auto;
+  border-radius: 12px;
+  max-width: 850px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2); /* カードを強調 */
+}
+
+.section h2 {
+  margin-top: 0;
 }
 
 img {
@@ -75,10 +81,10 @@ function toggleMenu() {
 
   if (sidebar.style.transform === "translateX(0px)") {
     sidebar.style.transform = "translateX(-250px)";
-    content.style.marginLeft = "0px";
+    content.style.marginLeft = "20px";
   } else {
     sidebar.style.transform = "translateX(0px)";
-    content.style.marginLeft = "250px";
+    content.style.marginLeft = "270px"; /* メニュー開いたら右にずらす */
   }
 }
 
@@ -99,4 +105,71 @@ window.onload = function() {
   <a href="#overview">🔧 MOD概要</a>
   <a href="#screenshot">📸 スクリーンショット</a>
   <a href="#items">📦 追加アイテム</a>
-  <a href="#blocks">
+  <a href="#blocks">🧱 追加ブロック</a>
+  <a href="#recipes">🧪 レシピ一覧</a>
+  <a href="#install">📥 導入方法</a>
+  <a href="#notes">⚠ 注意事項</a>
+  <a href="#history">📝 更新履歴</a>
+</div>
+
+<!-- メインコンテンツ -->
+<div id="content" class="content">
+
+<h1>マイクラMOD 説明ページ</h1>
+
+<div id="overview" class="section">
+  <h2>🔧 MOD概要</h2>
+  <p>このMODは、りかが開発している Minecraft 用の追加MODです。</p>
+</div>
+
+<div id="screenshot" class="section">
+  <h2>📸 スクリーンショット</h2>
+  <img src="images/sample.png" alt="スクリーンショット">
+</div>
+
+<div id="items" class="section">
+  <h2>📦 追加アイテム</h2>
+  <ul>
+    <li>Magic Stone（魔法の石）</li>
+    <li>Super Pickaxe（高速ツルハシ）</li>
+  </ul>
+</div>
+
+<div id="blocks" class="section">
+  <h2>🧱 追加ブロック</h2>
+  <ul>
+    <li>Light Block（光るブロック）</li>
+  </ul>
+</div>
+
+<div id="recipes" class="section">
+  <h2>🧪 レシピ一覧</h2>
+  <ul>
+    <li>Magic Stone → 石 + ダイヤ + エンダーパール</li>
+  </ul>
+</div>
+
+<div id="install" class="section">
+  <h2>📥 導入方法</h2>
+  <ol>
+    <li>Forge 1.20.1 をインストール</li>
+    <li>mods フォルダに jar を入れる</li>
+  </ol>
+</div>
+
+<div id="notes" class="section">
+  <h2>⚠ 注意事項</h2>
+  <p>競合情報などを書く。</p>
+</div>
+
+<div id="history" class="section">
+  <h2>📝 更新履歴</h2>
+  <ul>
+    <li>v0.1 初期リリース</li>
+  </ul>
+</div>
+
+</div>
+
+</body>
+</html>
