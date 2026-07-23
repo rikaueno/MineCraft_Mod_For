@@ -7,7 +7,7 @@
 body {
   font-family: sans-serif;
   margin: 0;
-  background: #f4f4ff;
+  background: #eef0ff;
 }
 
 /* 左側メニュー */
@@ -22,6 +22,7 @@ body {
   padding-top: 60px;
   transform: translateX(-250px);
   transition: 0.3s;
+  z-index: 1000;
 }
 
 .sidebar a {
@@ -43,12 +44,13 @@ body {
   font-size: 30px;
   cursor: pointer;
   color: #333;
+  z-index: 1100;
 }
 
 /* メインコンテンツ */
 .content {
-  margin-left: 20px;
   padding: 20px;
+  transition: margin-left 0.3s;
 }
 
 .section {
@@ -69,12 +71,21 @@ img {
 <script>
 function toggleMenu() {
   const sidebar = document.getElementById("sidebar");
+  const content = document.getElementById("content");
+
   if (sidebar.style.transform === "translateX(0px)") {
     sidebar.style.transform = "translateX(-250px)";
+    content.style.marginLeft = "0px";
   } else {
     sidebar.style.transform = "translateX(0px)";
+    content.style.marginLeft = "250px";
   }
 }
+
+// ページ読み込み時に overview に移動
+window.onload = function() {
+  location.hash = "#overview";
+};
 </script>
 
 </head>
@@ -86,4 +97,6 @@ function toggleMenu() {
 <!-- 左側メニュー -->
 <div id="sidebar" class="sidebar">
   <a href="#overview">🔧 MOD概要</a>
-  <a href="#screenshot">
+  <a href="#screenshot">📸 スクリーンショット</a>
+  <a href="#items">📦 追加アイテム</a>
+  <a href="#blocks">
