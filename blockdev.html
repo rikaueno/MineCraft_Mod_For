@@ -57,15 +57,33 @@ function toggleMenu() {
     新しいブロックを追加する手順をまとめています。
   </p>
 
-  <h3>① ブロック用の Java ファイルを作成</h3>
-  <p>src/main/java の中に、以下のようなブロッククラスを作成します。</p>
+  <h3>① 作業用のフォルダを作成</h3>
+  <p>src/main/java の中に、以下のようなディレクトリ(フォルダ)を2つ作成</p>
+  <p>例: D:\6_Dev\Mods\forge-1.20.1-47.4.13-mdk\src\main\java\com\myproject\project1_ayane_kao</p>
+  <p>豆知識</p>
+  <p>com.会社名.プロジェクト名　という構造が一般的。</p>
 
+  <h3>② MODブロック用の Java メインクラス定義ファイルを作成</h3>
+  <p>①で作ったディレクトリに、Project1AyaneKaoMod.javaを作成</p>
+  
+  <h3>③ ブロック用の Java ファイルを作成</h3>
   <pre><code>
-public class MyBlock extends Block {
-    public MyBlock() {
-        super(Properties.of()
-            .strength(3.0f)
-            .requiresCorrectToolForDrops());
+package com.myproject.project1_ayane_kao;
+
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+
+@Mod(Project1AyaneKaoMod.MODID)
+public class Project1AyaneKaoMod {
+
+    public static final String MODID = "project1_ayane_kao";
+
+    public Project1AyaneKaoMod() {
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModBlocks.register(bus);
+        ModItems.register(bus);
     }
 }
   </code></pre>
