@@ -251,11 +251,6 @@ public class ModCreativeTabs {
   <p>このサイトなどで、既存の写真などをドット絵に変換すると楽しいかも</p>
   <p>https://makebead.com/ja/pixel-art-converter/</p>
 
-  <h3>⑨ マイクラを起動して確認する</h3>
-  <p>Gradle → forgegradle runs → runClient を実行し、ブロックが追加されているか確認します。</p>
-
-  <img src="images/block_added_example.png" alt="ブロック追加例">
-
   <h3>⑨ gradle.propertiesの修正</h3>
   <p>forge-1.20.1-47.4.13-mdk/gradle.propertiesの内容を書き換える。</p>
     <pre><code class="blue-script">
@@ -267,6 +262,17 @@ mod_group_id=com.myproject.project1_ayane_kao
 mod_authors=rika（自分の名前へ）
 mod_description=Ayane Kao's first Forge mod.\nThis is my custom block mod.
 </code></pre>
+
+  <h3>⑩ src\main\java\com\example の削除</h3>
+  <p>元々配置してある、例フォルダを削除または切り取って、forge-1.20.1-47.4.13-mdk配下からどける</p>
+
+  <h3>⑪ ReBuild</h3>
+  <p>フォルダからBuildフォルダを削除して、</p>
+
+  <h3>⑫ マイクラを起動して確認する</h3>
+  <p>Gradle → forgegradle runs → runClient を実行し、ブロックが追加されているか確認します。</p>
+
+  <img src="images/block_added_example.png" alt="ブロック追加例">
   
   <p>これでブロック追加は完了です！</p>
 </div>
