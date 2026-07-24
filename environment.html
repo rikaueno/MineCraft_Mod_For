@@ -18,7 +18,11 @@ function toggleMenu() {
   const sidebar = document.getElementById("sidebar");
   const content = document.getElementById("content");
 
-  if (sidebar.style.transform === "translateX(0px)") {
+  // 現在の transform を計算値で取得
+  const current = window.getComputedStyle(sidebar).transform;
+
+  // 行列の値で判定（translateX(0px) の時は行列が "none" または "matrix(1, 0, 0, 1, 0, 0)"）
+  if (current === "none" || current === "matrix(1, 0, 0, 1, 0, 0)") {
     sidebar.style.transform = "translateX(-250px)";
     content.style.marginLeft = "20px";
   } else {
