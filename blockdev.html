@@ -36,6 +36,11 @@ function toggleMenu() {
     .then(response => response.text())
     .then(data => {
       document.getElementById("menu").innerHTML = data;
+
+      const btn = document.querySelector(".menu-btn");
+      if (btn) {
+        btn.addEventListener("click", toggleMenu);
+      }
     });
 </script>
 
