@@ -69,3 +69,15 @@ img {
   max-width: 100%;
   border-radius: 10px;
 }
+
+.blue-code {
+  color: #0077ff;          /* 青色 */
+  font-family: "Consolas", "Courier New", monospace; /* プログラムっぽい等幅フォント */
+  background: #f4f4f4;     /* 薄いグレー背景（コードブロック風） */
+  padding: 10px;
+  display: block;
+  border-radius: 8px;
+  font-size: 15px;
+  white-space: pre;        /* 改行やスペースをそのまま表示 */
+}
+
