@@ -5,12 +5,14 @@
 <title>開発環境構築</title>
 <link rel="stylesheet" href="style.css">
 
+<!-- ログイン制御 -->
 <script>
   if (localStorage.getItem("loggedIn") !== "true") {
-    window.location.href = "index.html"; // ログインページへ戻す
+    window.location.href = "index.html";
   }
 </script>
-  
+
+<!-- メニュー開閉 -->
 <script>
 function toggleMenu() {
   const sidebar = document.getElementById("sidebar");
@@ -26,6 +28,7 @@ function toggleMenu() {
 }
 </script>
 
+<!-- セクション開閉 -->
 <script>
 function toggleSection(id) {
   const box = document.getElementById(id);
@@ -36,6 +39,7 @@ function toggleSection(id) {
 </head>
 <body>
 
+<!-- 共通メニュー読み込み -->
 <div id="menu"></div>
 
 <script>
@@ -43,10 +47,16 @@ function toggleSection(id) {
     .then(response => response.text())
     .then(data => {
       document.getElementById("menu").innerHTML = data;
+
+      // 読み込み後にイベントを付与（安全）
+      const btn = document.querySelector(".menu-btn");
+      if (btn) {
+        btn.addEventListener("click", toggleMenu);
+      }
     });
 </script>
 
-<!-- 共通コンテンツ枠 -->
+<!-- コンテンツ -->
 <div id="content" class="content">
 
 <h1>🛠 開発環境構築</h1>
@@ -54,122 +64,130 @@ function toggleSection(id) {
 <div class="section">
   <h2>開発環境構築（Minecraft 1.20.1）</h2>
 
-  <p>
-    このページでは、Minecraft 1.20.1 用 MOD を開発するための環境構築手順をまとめています。
-  </p>
+  <p>このページでは、Minecraft 1.20.1 用 MOD を開発するための環境構築手順をまとめています。</p>
 
   <h3>① Minecraft 1.20.1 用インストーラーのダウンロード</h3>
-  <p>
-    以下のリンクから、1.20.1 用の Installer 一式をダウンロードします。
-  </p>
+  <p>以下のリンクから、1.20.1 用の Installer 一式をダウンロードします。</p>
+
   <p>
     <a href="https://drive.google.com/drive/folders/1QZbWzUZYpkoHlulhPkvnwaSdCWBs0BKP?usp=sharing" target="_blank">
       ➡ Minecraft 1.20.1 Installer（Google Drive）
     </a>
   </p>
+
   <p>↓すべてダウンロード</p>
   <img src="images/Env_12-Drive.png" alt="GoogleDrive">
-  
-  <p>
-    その時に、自分のエクスプローラー上に今回の開発作業で使用するフォルダを作成します。
-  </p>
-  <p>
-    ダウンロード先を、その場所に指定して、解凍してください。
-  </p>
-  <p>
-    例: D:\6_Dev\ (合わせる必要はない)
-  </p>
+
+  <p>その時に、自分のエクスプローラー上に今回の開発作業で使用するフォルダを作成します。</p>
+  <p>ダウンロード先を、その場所に指定して、解凍してください。</p>
+  <p>例: D:\6_Dev\ (合わせる必要はない)</p>
   <img src="images/Env_13-Installer.png" alt="Installer">
 
   <h3>② Java 17 が入っているか確認</h3>
   <p>コマンドプロンプトを開き、以下を入力します：</p>
+
   <pre><code>java -version</code></pre>
+
   <img src="images/Env_10-intellij_Java.png" alt="cmd画面">
+
   <p>Java17(Version 17であればOK) が表示されない場合は、以下からインストールしてください。</p>
-  <p>※Version 17が表示された場合はSKIPし、 ③IDEのインストールへ</p>
-  
-<div class="toggle-box">
-  <button class="toggle-btn" onclick="toggleSection('javaCheck')">▼ Java 17 インストール</button>
+  <p>※Version 17が表示された場合はSKIPし、③IDEのインストールへ</p>
 
-  <div id="javaCheck" class="toggle-content">
-    <p>①で解凍したフォルダ中のzulu17.42.19-ca-jdk17.0.7-win_x64.msiをダブルクリック</p>
-    <p>↓ Next</p>
-    <img src="images/Env_14-Zulu.png" alt="Zulu-1">
-    <p>↓ Will be installed on local hard driveに変更し、Next</p>
-    <img src="images/Env_15-Zulu.png" alt="Zulu-2">
-    <p>↓ Install</p>
-    <img src="images/Env_16-Zulu.png" alt="Zulu-3">
-    <p>↓ 数分待機</p>
-    <img src="images/Env_17-Zulu.png" alt="Zulu-4">
-    <p>↓ Completed** になっていることを確認し、Finish</p>
-    <img src="images/Env_18-Zulu.png" alt="Zulu-5">
+  <!-- Java インストール開閉 -->
+  <div class="toggle-box">
+    <button class="toggle-btn" onclick="toggleSection('javaCheck')">▼ Java 17 インストール</button>
+
+    <div id="javaCheck" class="toggle-content">
+      <p>①で解凍したフォルダ中の zulu17.42.19-ca-jdk17.0.7-win_x64.msi をダブルクリック</p>
+      <p>↓ Next</p>
+      <img src="images/Env_14-Zulu.png" alt="Zulu-1">
+      <p>↓ Will be installed on local hard drive に変更し、Next</p>
+      <img src="images/Env_15-Zulu.png" alt="Zulu-2">
+      <p>↓ Install</p>
+      <img src="images/Env_16-Zulu.png" alt="Zulu-3">
+      <p>↓ 数分待機</p>
+      <img src="images/Env_17-Zulu.png" alt="Zulu-4">
+      <p>↓ Completed になっていることを確認し、Finish</p>
+      <img src="images/Env_18-Zulu.png" alt="Zulu-5">
+    </div>
   </div>
-</div>
-
 
   <h3>③ IDE（統合開発環境）のインストール</h3>
-  <p>IntelliJ IDEA を①の中のidea-2026.1.3.exeをダブルクリックしインストールします。</p>
+  <p>IntelliJ IDEA を①の中の idea-2026.1.3.exe をダブルクリックしインストールします。</p>
 
-  <p>↓　次へ</p>
+  <p>↓ 次へ</p>
   <img src="images/Env_19-Intellij.png" alt="次へ">
-  <p>↓　空き容量があるドライブを自分で選択する。どこでもOK</p>
-  <p>例: F:\JetBrains\IntelliJ IDEA 2026.1.3 (合わせる必要はない)</p>
+
+  <p>↓ 空き容量があるドライブを自分で選択する。どこでもOK</p>
+  <p>例: F:\JetBrains\IntelliJ IDEA 2026.1.3</p>
   <img src="images/Env_2-intellij.png" alt="空き容量があるドライブを自分で選択してOK">
-  <p>↓　画像のようにチェック</p>
+
+  <p>↓ 画像のようにチェック</p>
   <img src="images/Env_20-Intellij.png" alt="画像のようにチェック">
-  <p>↓　そのままインストール</p>
+
+  <p>↓ そのままインストール</p>
   <img src="images/Env_21-Intellij.png" alt="画像のようにチェック">
-  <p>↓　数分待機する</p>
+
+  <p>↓ 数分待機する</p>
   <img src="images/Env_22-Intellij.png" alt="画像のようにチェック">
-  <p>↓　実行にチェックが入っていることを確認して、完了</p>
+
+  <p>↓ 実行にチェックが入っていることを確認して、完了</p>
   <img src="images/Env_3-intellij.png" alt="実行にチェックが入っていることを確認して、完了">
-  <p>↓　アプリが立ち上がったら、skip import</p>
+
+  <p>↓ アプリが立ち上がったら、skip import</p>
   <img src="images/Env_23-Af_Intellij.png" alt="Intellij">
-  <p>↓　以下の画面になったことを確認し、アプリは閉じずにそのままにしておく</p>
+
+  <p>↓ 以下の画面になったことを確認し、アプリは閉じずにそのままにしておく</p>
   <img src="images/Env_24-Af_Intellij.png" alt="Intellij">
 
   <h3>④ Minecraft Forge MDK のインストール</h3>
-  <p>①の中のforge-1.20.1-47.4.13-mdk.zipを①で作ったエクスプローラー上で解凍します。</p>
+  <p>①の中の forge-1.20.1-47.4.13-mdk.zip を①で作ったフォルダ上で解凍します。</p>
   <p>例: D:\6_Dev\Mods\forge-1.20.1-47.4.13-mdk</p>
   <img src="images/Env_11-Forge_dir.png" alt="dir">
 
   <h3>⑤ IntelliJ でプロジェクトを開く</h3>
+
   <ol>
     <li>日本語設定に変更</li>
-    <p>↓　開いていたIntelliJ IDEAより、左下歯車マークよりsettings</p>
+    <p>↓ 左下歯車 → settings</p>
     <img src="images/Env_25-intellij_JP.png" alt="setting">
-    <p>↓　日本語、Asiaに設定</p>
+
+    <p>↓ 日本語、Asia に設定</p>
     <img src="images/Env_5-intellij_JP.png" alt="日本語">
-    <p>設定を反映させるため、Restart</p>
-    <p>↓ 日本語設定になったことを確認する</p>
+
+    <p>↓ Restart → 日本語化確認</p>
     <img src="images/Env_26-intellij_JP.png" alt="日本語画面">
-    
+
     <li>IntelliJ → Open → MDKフォルダを選択</li>
-    <p>↓　IntelliJ IDEAより、プロジェクト > 開く</p>
+    <p>↓ プロジェクト > 開く</p>
     <img src="images/Env_27-intellij_PJ.png" alt="PJ1">
-    <p>↓　③で解凍したforge**ファイルを選択</p>
-    <p>例: D:\6_Dev\Mods\forge-1.20.1-47.4.13-mdk</p>
+
+    <p>↓ forge フォルダを選択</p>
     <img src="images/Env_28-intellij_PJ.png" alt="PJ2">
-    <li>信頼するにチェックを入れて、Modsフォルダーを信頼</li>
+
+    <li>信頼するにチェック</li>
     <img src="images/Env_29-intellij_PJ.png" alt="PJ3">
-    <li>右下の青いバーでインポート・解析が終わるまで待機する</li>
+
+    <li>インポート完了まで待機</li>
     <img src="images/Env_30-intellij_PJ.png" alt="PJ4">
-    <li>ファイル > プロジェクト構造...</li>
+
+    <li>SDK が Java17 であることを確認</li>
     <img src="images/Env_31-intellij_PJ.png" alt="PJ5">
-    <li>SDK に Java17 に設定されていることを確認してOK</li>
     <img src="images/Env_32-intellij_PJ.png" alt="PJ6">
-    <li>右側の像マークで Gradleを開き、Tasks → forgegradle runs → runClient を右クリックより ▷実行</li>
+
+    <li>Gradle → forgegradle runs → runClient を実行</li>
     <img src="images/Env_33-intellij_PJ.png" alt="PJ7">
-    <li>数秒待機して、Minecraftが起動してきたことを確認する</li>
+
+    <li>Minecraft が起動することを確認</li>
     <img src="images/Env_34-intellij_PJ.png" alt="PJ8">
-    <li>Minecraftの言語も日本語に変更しておく</li></li>
+
+    <li>言語を日本語に変更</li>
     <img src="images/Env_35-intellij_PJ.png" alt="PJ9">
     <img src="images/Env_36-intellij_PJ.png" alt="PJ10">
-
-    <p>これで独自Modを反映できる環境構築は完了です。</p>
-    <p>ここからModをJavaで書いていって、それのテストをこのワールドで実施、他ワールドに配布できる形にしていくって流れです。</p>
-    <p>次は、block開発を試してみてね！</p>
   </ol>
+
+  <p>これで環境構築は完了です。</p>
+  <p>次は block 開発を試してみてね！</p>
 
 </div>
 
