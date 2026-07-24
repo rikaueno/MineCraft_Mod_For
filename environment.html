@@ -86,32 +86,47 @@ function toggleSection(id) {
   <pre><code>java -version</code></pre>
   <img src="images/Env_10-intellij_Java.png" alt="cmd画面">
   <p>Java17(Version 17であればOK) が表示されない場合は、以下からインストールしてください。</p>
-  <p>※Version 17が表示された場合はIDEのインストールへ</p>
+  <p>※Version 17が表示された場合はSKIPし、 ③IDEのインストールへ</p>
   
 <div class="toggle-box">
   <button class="toggle-btn" onclick="toggleSection('javaCheck')">▼ Java 17 インストール</button>
 
   <div id="javaCheck" class="toggle-content">
     <p>①で解凍したフォルダ中のzulu17.42.19-ca-jdk17.0.7-win_x64.msiをダブルクリック</p>
+    <p>↓ Next</p>
     <img src="images/Env_14-Zulu.png" alt="Zulu-1">
+    <p>↓ Will be installed on local hard driveに変更し、Next</p>
     <img src="images/Env_15-Zulu.png" alt="Zulu-2">
+    <p>↓ Install</p>
     <img src="images/Env_16-Zulu.png" alt="Zulu-3">
+    <p>↓ 数分待機</p>
     <img src="images/Env_17-Zulu.png" alt="Zulu-4">
+    <p>↓ Completed** になっていることを確認し、Finish</p>
     <img src="images/Env_18-Zulu.png" alt="Zulu-5">
   </div>
 </div>
 
 
   <h3>③ IDE（統合開発環境）のインストール</h3>
-  <p>IntelliJ IDEA を①の中のidea-2026.1.3.exeからインストールします。</p>
+  <p>IntelliJ IDEA を①の中のidea-2026.1.3.exeをダブルクリックしインストールします。</p>
 
-  <p>↓　画像のようにチェック</p>
-  <img src="images/Env_1-intellij.png" alt="画像のようにチェック">
+  <p>↓　次へ</p>
+  <img src="images/Env_19-Intellij.png" alt="次へ">
   <p>↓　空き容量があるドライブを自分で選択する。どこでもOK</p>
   <p>例: F:\JetBrains\IntelliJ IDEA 2026.1.3 (合わせる必要はない)</p>
   <img src="images/Env_2-intellij.png" alt="空き容量があるドライブを自分で選択してOK">
+  <p>↓　画像のようにチェック</p>
+  <img src="images/Env_20-Intellij.png" alt="画像のようにチェック">
+  <p>↓　そのままインストール</p>
+  <img src="images/Env_21-Intellij.png" alt="画像のようにチェック">
+  <p>↓　数分待機する</p>
+  <img src="images/Env_22-Intellij.png" alt="画像のようにチェック">
   <p>↓　実行にチェックが入っていることを確認して、完了</p>
   <img src="images/Env_3-intellij.png" alt="実行にチェックが入っていることを確認して、完了">
+  <p>↓　アプリが立ち上がったら、skip import</p>
+  <img src="images/Env_23-Af_Intellij.png" alt="Intellij">
+  <p>↓　以下の画面になったことを確認し、アプリは閉じずにそのままにしておく</p>
+  <img src="images/Env_24-Af_Intellij.png" alt="Intellij">
 
   <h3>④ Minecraft Forge MDK のインストール</h3>
   <p>①の中のforge-1.20.1-47.4.13-mdk.zipを①で作ったエクスプローラー上で解凍します。</p>
@@ -121,8 +136,12 @@ function toggleSection(id) {
   <h3>⑤ IntelliJ でプロジェクトを開く</h3>
   <ol>
     <li>日本語設定に変更</li>
-    <img src="images/Env_4-intellij_JP.png" alt="setting">
+    <p>↓　開いていた</p>
+    <img src="images/Env_25-intellij_JP.png" alt="setting">
     <img src="images/Env_5-intellij_JP.png" alt="日本語">
+    <p>設定を反映させるため、Restart</p>
+    <p>↓ 日本語設定になったことを確認する</p>
+    <img src="images/Env_26-intellij_JP.png" alt="日本語画面">
     
     <li>IntelliJ → Open → MDKフォルダを選択</li>
     <img src="images/Env_6-intellij_PJ.png" alt="PJ1">
