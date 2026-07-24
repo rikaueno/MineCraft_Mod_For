@@ -87,5 +87,12 @@ img {
   font-weight: bold;
 }
 
+.tip-box {
+  border: 2px solid #6a6aff;   /* 青系の枠線 */
+  background: #f0f2ff;         /* ほんのり青背景 */
+  padding: 12px 16px;
+  border-radius: 10px;
+  margin: 15px 0;
+}
 
 
