@@ -44,9 +44,96 @@ function toggleMenu() {
 <h1>🧱 MOD開発（ブロック）</h1>
 
 <div class="section">
-  <h2>ブロック追加の手順</h2>
-  <p>ここにブロック追加の手順を記載します。</p>
+  <h2>ブロック追加の手順（Minecraft 1.20.1 / Forge）</h2>
+
+  <p>
+    このページでは、Minecraft 1.20.1 の Forge 環境で、
+    新しいブロックを追加する手順をまとめています。
+  </p>
+
+  <h3>① ブロック用の Java ファイルを作成</h3>
+  <p>src/main/java の中に、以下のようなブロッククラスを作成します。</p>
+
+  <pre><code>
+public class MyBlock extends Block {
+    public MyBlock() {
+        super(Properties.of()
+            .strength(3.0f)
+            .requiresCorrectToolForDrops());
+    }
+}
+  </code></pre>
+
+  <h3>② ブロックを登録する</h3>
+  <p>ModBlocks.java を作成し、DeferredRegister を使って登録します。</p>
+
+  <pre><code>
+public class ModBlocks {
+    public static final DeferredRegister<Block> BLOCKS =
+        DeferredRegister.create(ForgeRegistries.BLOCKS, "modid");
+
+    public static final RegistryObject<Block> MY_BLOCK =
+        BLOCKS.register("my_block", MyBlock::new);
+}
+  </code></pre>
+
+  <h3>③ ブロックアイテムを登録する</h3>
+  <p>ブロックをインベントリに表示するために、ブロックアイテムも登録します。</p>
+
+  <pre><code>
+public class ModItems {
+    public static final DeferredRegister<Item> ITEMS =
+        DeferredRegister.create(ForgeRegistries.ITEMS, "modid");
+
+    public static final RegistryObject<Item> MY_BLOCK_ITEM =
+        ITEMS.register("my_block",
+            () -> new BlockItem(ModBlocks.MY_BLOCK.get(),
+                new Item.Properties()));
+}
+  </code></pre>
+
+  <h3>④ JSON を追加する（モデル・ブロックステート）</h3>
+  <p>src/main/resources に以下の JSON を追加します。</p>
+
+  <p>📁 blockstates/my_block.json</p>
+  <pre><code>
+{
+  "variants": {
+    "": { "model": "modid:block/my_block" }
+  }
+}
+  </code></pre>
+
+  <p>📁 models/block/my_block.json</p>
+  <pre><code>
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "modid:block/my_block"
+  }
+}
+  </code></pre>
+
+  <p>📁 models/item/my_block.json</p>
+  <pre><code>
+{
+  "parent": "modid:block/my_block"
+}
+  </code></pre>
+
+  <h3>⑤ テクスチャを追加する</h3>
+  <p>📁 textures/block/my_block.png を追加します。</p>
+
+  <img src="images/block_texture_example.png" alt="ブロックテクスチャ例">
+
+  <h3>⑥ 起動して確認する</h3>
+  <p>Gradle → forgegradle runs → runClient を実行し、ブロックが追加されているか確認します。</p>
+
+  <img src="images/block_added_example.png" alt="ブロック追加例">
+
+  <p>これでブロック追加は完了です！</p>
 </div>
+
 
 </div>
 
