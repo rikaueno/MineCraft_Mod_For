@@ -238,10 +238,20 @@ public class ModCreativeTabs {
 
 <script>
 document.querySelectorAll("pre code").forEach(block => {
-  if (block.textContent.includes("&lt;script&gt;")) {
+  let html = block.innerHTML;
+
+  // scriptタグを自動で色付け
+  html = html.replace(/&lt;script&gt;/g, '<span class="tag">&lt;script&gt;</span>');
+  html = html.replace(/&lt;\/script&gt;/g, '<span class="tag">&lt;/script&gt;</span>');
+
+  block.innerHTML = html;
+
+  // scriptを含むコードブロックだけ青色化
+  if (block.textContent.includes("script")) {
     block.classList.add("blue-script");
   }
 });
 </script>
+
 
 
