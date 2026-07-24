@@ -62,6 +62,7 @@ function toggleMenu() {
   <h3>① 新規パッケージフォルダを作成</h3>
   <p>src/main/java の中に、以下のようなディレクトリ(フォルダ)を2つ作成</p>
   <p>例: D:\6_Dev\Mods\forge-1.20.1-47.4.13-mdk\src\main\java\com\myproject\project1_ayane_kao</p>
+  <p>この場合、存在してない myproject\project1_ayane_kao を作成する</p>
   <img src="images/block_texture_example.png" alt="ブロックテクスチャ例">
   
 <div class="tip-box">
@@ -172,7 +173,7 @@ public class ModCreativeTabs {
   <h3>⑦ JSON を追加する（モデル・ブロックステート）</h3>
   <p>src/main/resources に以下の フォルダとJSON を追加します。</p>
 
-  <p>【参考】リソースフォルダの構成</p>
+  <p>【参考】リソースフォルダの目標構成</p>
   <p>src/main/resources/assets/project1_ayane_kao/</p>
   <p> 　├ blockstates/ayane_block.json</p>
   <p>　 ├ models/block/ayane_block.json</p>
@@ -180,7 +181,20 @@ public class ModCreativeTabs {
   <p> 　├ textures/block/ayane_block.png</p>
   <p></p>
 
-  <p></p>
+  <h3>⑦-1 新規リソースフォルダを作成</h3>
+  <p>src/main/resources の中に、以下のようなディレクトリ(フォルダ)を2つ作成</p>
+  <p>例: D:\6_Dev\Mods\forge-1.20.1-47.4.13-mdk\src\main\resources\assets\project1_ayane_kao</p>
+  <p>この場合、存在してない assets\project1_ayane_kao を作成する</p>
+  <img src="images/block_texture_example.png" alt="ブロックテクスチャ例">
+
+  <h3>⑦-2 新規リソースサブフォルダを作成</h3>
+  <p>src/main/resources/assets/project1_ayane_kao の中に、以下のようなディレクトリ(フォルダ)を5つ作成</p>
+  <p>blockstates</p>
+  <p>models/block</p>
+  <p>models/item</p>
+  <img src="images/block_texture_example.png" alt="ブロックテクスチャ例">
+  
+  <h3>⑦-3 blockstates JSONを作成</h3>
   <p>📁 blockstates/ayane_block.json</p>
   <pre><code class="blue-script">
 {
@@ -190,7 +204,7 @@ public class ModCreativeTabs {
 }
 </code></pre>
 
-  <p></p>
+  <h3>⑦-4 models/block JSONを作成</h3>
   <p>📁 models/block/ayane_block.json</p>
   <pre><code class="blue-script">
 {
@@ -200,7 +214,7 @@ public class ModCreativeTabs {
 }
 </code></pre>
 
-  <p></p>
+  <h3>⑦-4 models/item JSONを作成</h3>
   <p>📁 models/item/ayane_block.json</p>
   <pre><code class="blue-script">
 {
