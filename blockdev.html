@@ -69,6 +69,7 @@ function toggleMenu() {
   
   <h3>③ ブロック用の Java ファイル(メインクラス)を作成</h3>
   <pre><code>
+&lt;script&gt;
 package com.myproject.project1_ayane_kao;
 
 import net.minecraftforge.fml.common.Mod;
@@ -87,13 +88,15 @@ public class Project1AyaneKaoMod {
         ModItems.register(bus);
     }
 }
-  </code></pre>
+&lt;/script&gt;
+</code></pre>
 
   <h3>④ ブロック登録クラスを作成</h3>
   <p>同じ場所にModBlocks.java を作成し、DeferredRegister を使って登録します。</p>
   <p>これで、ブロック自体をマイクラに読ませることが出来ます。</p>
 
   <pre><code>
+&lt;script&gt;
 package com.myproject.project1_ayane_kao;
 
 import net.minecraft.world.level.block.Block;
@@ -114,7 +117,8 @@ public class ModBlocks {
                             .strength(2.0f, 5.0f)
                     ));
 }
-  </code></pre>
+&lt;/script&gt;
+</code></pre>
 
   <h3>⑤ ブロックアイテム登録クラスを作成</h3>
   <p>同じ場所にModItems.java を作成します。</p>
@@ -218,3 +222,12 @@ public class ModCreativeTabs {
 
 </body>
 </html>
+
+<script>
+document.querySelectorAll("pre code").forEach(block => {
+  if (block.textContent.includes("<script>")) {
+    block.classList.add("blue-script");
+  }
+});
+</script>
+
