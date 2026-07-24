@@ -1,1 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MOD案</title>
+<link rel="stylesheet" href="style.css">
 
+<script>
+  if (localStorage.getItem("loggedIn") !== "true") {
+    window.location.href = "index.html"; // ログインページへ戻す
+  }
+</script>
+  
+<script>
+function toggleMenu() {
+  const sidebar = document.getElementById("sidebar");
+  const content = document.getElementById("content");
+
+  if (sidebar.style.transform === "translateX(0px)") {
+    sidebar.style.transform = "translateX(-250px)";
+    content.style.marginLeft = "20px";
+  } else {
+    sidebar.style.transform = "translateX(0px)";
+    content.style.marginLeft = "270px";
+  }
+}
+</script>
+
+</head>
+<body>
+
+<!-- 共通ハンバーガーメニュー -->
+<div id="menu"></div>
+
+<script>
+  fetch("menu.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("menu").innerHTML = data;
+
+      const btn = document.querySelector(".menu-btn");
+      if (btn) {
+        btn.addEventListener("click", toggleMenu);
+      }
+    });
+</script>
+
+<!-- ページ内容 -->
+<div id="content" class="content">
+  <h1>MOD案</h1>
+
+  <div class="section">
+    <h2>案① 缶蹴り</h2>
+    <p>マイクラ内で缶蹴りができる</p>
+    <p>缶、蹴るモーションを追加</p>
+  </div>
+</div>
+
+</body>
+</html>
