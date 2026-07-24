@@ -48,7 +48,7 @@ function toggleSection(id) {
     .then(data => {
       document.getElementById("menu").innerHTML = data;
 
-      // 読み込み後にイベントを付与（安全）
+      // 読み込み後にイベントを付与
       const btn = document.querySelector(".menu-btn");
       if (btn) {
         btn.addEventListener("click", toggleMenu);
