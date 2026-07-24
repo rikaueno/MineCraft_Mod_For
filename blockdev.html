@@ -125,6 +125,7 @@ public class ModBlocks {
   <p>これで、ブロックをインベントリに表示することができます。</p>
 
   <pre><code>
+&lt;script&gt;
 package com.myproject.project1_ayane_kao;
 
 import net.minecraft.world.item.BlockItem;
@@ -141,13 +142,15 @@ public class ModItems {
             ITEMS.register("ayane_block", () ->
                     new BlockItem(ModBlocks.AYANE_BLOCK.get(), new Item.Properties()));
 }
-  </code></pre>
+&lt;/script&gt;
+</code></pre>
 
   <h3>⑥ クリエイティブタブに追加</h3>
   <p>同じ場所にModCreativeTabs.java を作成します。</p>
   <p>これで、ブロックをタブに入れることができます。</p>
 
   <pre><code>
+&lt;script&gt;
 package com.myproject.project1_ayane_kao;
 
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -164,7 +167,8 @@ public class ModCreativeTabs {
         }
     }
 }
-  </code></pre>
+&lt;/script&gt;
+</code></pre>
 
   <h3>⑦ JSON を追加する（モデル・ブロックステート）</h3>
   <p>src/main/resources に以下の フォルダとJSON を追加します。</p>
@@ -178,28 +182,34 @@ public class ModCreativeTabs {
 
   <p>📁 blockstates/ayane_block.json</p>
   <pre><code>
+&lt;script&gt;
 {
   "variants": {
     "": { "model": "project1_ayane_kao:block/ayane_block" }
   }
 }
-  </code></pre>
+&lt;/script&gt;
+</code></pre>
 
   <p>📁 models/block/ayane_block.json</p>
   <pre><code>
+&lt;script&gt;
 {
   "variants": {
     "": { "model": "project1_ayane_kao:block/ayane_block" }
   }
 }
-  </code></pre>
+&lt;/script&gt;
+</code></pre>
 
   <p>📁 models/item/ayane_block.json</p>
   <pre><code>
+&lt;script&gt;
 {
   "parent": "project1_ayane_kao:block/ayane_block"
 }
-  </code></pre>
+&lt;/script&gt;
+</code></pre>
 
   <h3>⑧ テクスチャを追加する</h3>
   <p>📁 textures/block/ayane_block.png を追加します。</p>
@@ -225,9 +235,10 @@ public class ModCreativeTabs {
 
 <script>
 document.querySelectorAll("pre code").forEach(block => {
-  if (block.textContent.includes("<script>")) {
+  if (block.textContent.includes("&lt;script&gt;")) {
     block.classList.add("blue-script");
   }
 });
 </script>
+
 
