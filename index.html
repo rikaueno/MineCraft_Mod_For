@@ -16,10 +16,12 @@ async function check() {
   const hashArray = Array.from(new Uint8Array(hashBuffer));
   const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 
+  
  if (hashHex === correctHash) {
    window.location.href = "home.html";
+   localStorage.setItem("loggedIn", "true");
  } else {
-    alert("パスワードが違うよ");
+    alert("パスワードが違います");
   }
 }
 </script>
@@ -31,8 +33,6 @@ async function check() {
   <input type="password" id="pw">
   <button onclick="check()">Enter</button>
 </div>
-
-localStorage.setItem("loggedIn", "true");
   
 </body>
 </html>
