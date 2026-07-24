@@ -57,7 +57,7 @@ function toggleMenu() {
     新しいブロックを追加する手順をまとめています。
   </p>
 
-  <h3>① 作業用のフォルダを作成</h3>
+  <h3>① 新規パッケージフォルダを作成</h3>
   <p>src/main/java の中に、以下のようなディレクトリ(フォルダ)を2つ作成</p>
   <p>例: D:\6_Dev\Mods\forge-1.20.1-47.4.13-mdk\src\main\java\com\myproject\project1_ayane_kao</p>
   <p>豆知識</p>
@@ -65,8 +65,9 @@ function toggleMenu() {
 
   <h3>② MODブロック用の Java メインクラス定義ファイルを作成</h3>
   <p>①で作ったディレクトリに、Project1AyaneKaoMod.javaを作成</p>
+  <p>IntelliJより、②で作成したディレクトリを右クリック > 新規 > Javaクラス</p>
   
-  <h3>③ ブロック用の Java ファイルを作成</h3>
+  <h3>③ ブロック用の Java ファイル(メインクラス)を作成</h3>
   <pre><code>
 package com.myproject.project1_ayane_kao;
 
@@ -88,69 +89,123 @@ public class Project1AyaneKaoMod {
 }
   </code></pre>
 
-  <h3>② ブロックを登録する</h3>
-  <p>ModBlocks.java を作成し、DeferredRegister を使って登録します。</p>
+  <h3>④ ブロック登録クラスを作成</h3>
+  <p>同じ場所にModBlocks.java を作成し、DeferredRegister を使って登録します。</p>
+  <p>これで、ブロック自体をマイクラに読ませることが出来ます。</p>
 
   <pre><code>
+package com.myproject.project1_ayane_kao;
+
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
-        DeferredRegister.create(ForgeRegistries.BLOCKS, "modid");
+            DeferredRegister.create(ForgeRegistries.BLOCKS, Project1AyaneKao.MODID);
 
-    public static final RegistryObject<Block> MY_BLOCK =
-        BLOCKS.register("my_block", MyBlock::new);
+    public static final RegistryObject<Block> AYANE_BLOCK =
+            BLOCKS.register("ayane_block", () ->
+                    new Block(BlockBehaviour.Properties.of()
+                            .mapColor(MapColor.COLOR_PINK)
+                            .strength(2.0f, 5.0f)
+                    ));
 }
   </code></pre>
 
-  <h3>③ ブロックアイテムを登録する</h3>
-  <p>ブロックをインベントリに表示するために、ブロックアイテムも登録します。</p>
+  <h3>⑤ ブロックアイテム登録クラスを作成</h3>
+  <p>同じ場所にModItems.java を作成します。</p>
+  <p>これで、ブロックをインベントリに表示することができます。</p>
 
   <pre><code>
+package com.myproject.project1_ayane_kao;
+
+import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
+
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
-        DeferredRegister.create(ForgeRegistries.ITEMS, "modid");
+            DeferredRegister.create(ForgeRegistries.ITEMS, Project1AyaneKao.MODID);
 
-    public static final RegistryObject<Item> MY_BLOCK_ITEM =
-        ITEMS.register("my_block",
-            () -> new BlockItem(ModBlocks.MY_BLOCK.get(),
-                new Item.Properties()));
+    public static final RegistryObject<Item> AYANE_BLOCK_ITEM =
+            ITEMS.register("ayane_block", () ->
+                    new BlockItem(ModBlocks.AYANE_BLOCK.get(), new Item.Properties()));
 }
   </code></pre>
 
-  <h3>④ JSON を追加する（モデル・ブロックステート）</h3>
-  <p>src/main/resources に以下の JSON を追加します。</p>
+  <h3>⑥ クリエイティブタブに追加</h3>
+  <p>同じ場所にModCreativeTabs.java を作成します。</p>
+  <p>これで、ブロックをタブに入れることができます。</p>
 
-  <p>📁 blockstates/my_block.json</p>
+  <pre><code>
+package com.myproject.project1_ayane_kao;
+
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber(modid = Project1AyaneKao.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+public class ModCreativeTabs {
+
+    @SubscribeEvent
+    public static void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTabKey() == net.minecraft.world.item.CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModItems.AYANE_BLOCK_ITEM);
+        }
+    }
+}
+  </code></pre>
+
+  <h3>⑦ JSON を追加する（モデル・ブロックステート）</h3>
+  <p>src/main/resources に以下の フォルダとJSON を追加します。</p>
+
+  <p>【参考】リソースフォルダの構成</p>
+  <p>src/main/resources/assets/project1_ayane_kao/</p>
+  <p> ├ blockstates/ayane_block.json</p>
+  <p> ├ models/block/ayane_block.json</p>
+  <p> ├ models/item/ayane_block.json</p>
+  <p> ├ textures/block/ayane_block.png</p>
+
+  <p>📁 blockstates/ayane_block.json</p>
   <pre><code>
 {
   "variants": {
-    "": { "model": "modid:block/my_block" }
+    "": { "model": "project1_ayane_kao:block/ayane_block" }
   }
 }
   </code></pre>
 
-  <p>📁 models/block/my_block.json</p>
+  <p>📁 models/block/ayane_block.json</p>
   <pre><code>
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "modid:block/my_block"
+  "variants": {
+    "": { "model": "project1_ayane_kao:block/ayane_block" }
   }
 }
   </code></pre>
 
-  <p>📁 models/item/my_block.json</p>
+  <p>📁 models/item/ayane_block.json</p>
   <pre><code>
 {
-  "parent": "modid:block/my_block"
+  "parent": "project1_ayane_kao:block/ayane_block"
 }
   </code></pre>
 
-  <h3>⑤ テクスチャを追加する</h3>
-  <p>📁 textures/block/my_block.png を追加します。</p>
+  <h3>⑧ テクスチャを追加する</h3>
+  <p>📁 textures/block/ayane_block.png を追加します。</p>
+  <p>マイクラに登録できるサイズは、16×16 or 32×32で、形式は.PNGです。</p>
 
+  <p>このサイトなどで、既存の写真などをドット絵に変換すると楽しいかも</p>
+  <p>https://makebead.com/ja/pixel-art-converter/</p>
   <img src="images/block_texture_example.png" alt="ブロックテクスチャ例">
 
-  <h3>⑥ 起動して確認する</h3>
+  <h3>⑨ マイクラを起動して確認する</h3>
   <p>Gradle → forgegradle runs → runClient を実行し、ブロックが追加されているか確認します。</p>
 
   <img src="images/block_added_example.png" alt="ブロック追加例">
