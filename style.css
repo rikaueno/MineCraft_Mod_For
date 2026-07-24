@@ -71,7 +71,7 @@ img {
 }
 
 .blue-script {
-  color: #0077ff;          /* 青色 */
+  color: #0077ff;
   font-family: "Consolas", "Courier New", monospace;
   background: #f4f4f4;
   padding: 10px;
@@ -80,5 +80,12 @@ img {
   font-size: 15px;
   white-space: pre;
 }
+
+/* scriptタグだけ別色にする */
+.blue-script .tag {
+  color: #d14; /* 赤っぽいタグ色（VSCode風） */
+  font-weight: bold;
+}
+
 
 
