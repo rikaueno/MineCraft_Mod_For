@@ -25,6 +25,14 @@ function toggleMenu() {
   }
 }
 </script>
+
+<script>
+function toggleSection(id) {
+  const box = document.getElementById(id);
+  box.style.display = (box.style.display === "block") ? "none" : "block";
+}
+</script>
+
 </head>
 <body>
 
@@ -77,8 +85,18 @@ function toggleMenu() {
   <p>コマンドプロンプトを開き、以下を入力します：</p>
   <pre><code>java -version</code></pre>
   <img src="images/Env_10-intellij_Java.png" alt="cmd画面">
-  <p>Java 17 が表示されない場合は、①の中のzulu17.42.19-ca-jdk17.0.7-win_x64.msiからインストールしてください。</p>
-  <p>※インストールする場合は、デフォルトでOK</p>
+  <p>Java17(Version 17であればOK) が表示されない場合は、①の中のzulu17.42.19-ca-jdk17.0.7-win_x64.msiからインストールしてください。</p>
+  <p>※インストールする場合は、以下参照</p>
+  
+<div class="toggle-box">
+  <button class="toggle-btn" onclick="toggleSection('javaCheck')">▼ Java 17 の確認方法を表示</button>
+
+  <div id="javaCheck" class="toggle-content">
+    <pre><code>java -version</code></pre>
+    <p>Java 17 が表示されない場合はインストールしてください。</p>
+  </div>
+</div>
+
 
   <h3>③ IDE（統合開発環境）のインストール</h3>
   <p>IntelliJ IDEA を①の中のidea-2026.1.3.exeからインストールします。</p>
