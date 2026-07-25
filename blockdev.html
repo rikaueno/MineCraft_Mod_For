@@ -206,18 +206,20 @@ public class ModCreativeTabs {
   <p>src/main/resources の中に、以下のようなディレクトリ(フォルダ)を2つ作成</p>
   <p>例: D:\6_Dev\Mods\forge-1.20.1-47.4.13-mdk\src\main\resources\assets\project1_ayane_kao</p>
   <p>この場合、存在してない assets\project1_ayane_kao を作成する</p>
-  <img src="images/block_texture_example.png" alt="ブロックテクスチャ例">
+  <img src="images/Blk_4-Java.png" alt="ディレクトリ">
 
   <h3>⑦-2 新規リソースサブフォルダを作成</h3>
   <p>src/main/resources/assets/project1_ayane_kao の中に、以下のようなディレクトリ(フォルダ)を4つ作成</p>
   <p>blockstates</p>
   <p>models/block</p>
   <p>models/item</p>
-  <img src="images/block_texture_example.png" alt="ブロックテクスチャ例">
-  <img src="images/block_texture_example.png" alt="ブロックテクスチャ例">
+  <img src="images/Blk_5-Java.png" alt="ディレクトリ１">
+  <img src="images/Blk_6-Java.png" alt="ディレクトリ２">
   
   <h3>⑦-3 blockstates JSONを作成</h3>
   <p>📁 blockstates/ayane_block.json</p>
+  <img src="images/Blk_7-Java.png" alt="intellij">
+  <img src="images/Blk_8-Java.png" alt="JSON">
   <pre><code class="blue-script">
 {
   "variants": {
@@ -252,11 +254,10 @@ public class ModCreativeTabs {
   <h3>⑧-1 新規リソースサブフォルダを作成</h3>
   <p>src/main/resources/assets/project1_ayane_kao の中に、以下のようなディレクトリ(フォルダ)を2つ作成</p>
   <p>textures/block</p>
-  <img src="images/block_texture_example.png" alt="ブロックテクスチャ例">
 
   <h3>⑧-2 ayane_block.pngを配置する</h3>
   <p>src/main/resources/assets/project1_ayane_kao/textures/block の中に、ブロックの見た目にしたい画像を配置する</p>
-  <img src="images/block_texture_example.png" alt="ブロックテクスチャ例">
+  <img src="images/Blk_9-Java.png" alt="PNG">
   <p>このサイトなどで、既存の写真などをドット絵に変換すると楽しいかも</p>
   <p>https://makebead.com/ja/pixel-art-converter/</p>
 
@@ -272,15 +273,23 @@ mod_description=Ayane Kao's first Forge mod.\nThis is my custom block mod.
 </code></pre>
 
   <h3>⑩ src\main\java\com\example の削除</h3>
-  <p>元々配置してある、例フォルダを削除または切り取って、forge-1.20.1-47.4.13-mdk配下からどける</p>
+  <p>元々配置してある、例（example）フォルダを削除または切り取って、forge-1.20.1-47.4.13-mdk配下からどける</p>
+  <p>※myprojectだけになればOK</p>
+  <img src="images/Blk_16-kiritori.png" alt="切り取り">
 
   <h3>⑪ ReBuild</h3>
-  <p>フォルダからBuildフォルダを削除して、</p>
+  <p>forge-1.20.1-47.4.13-mdkフォルダ直下からBuildフォルダを削除して、genIntellijRunsを実行</p>
+  <img src="images/Blk_17-build.png" alt="切り取り">
+  <img src="images/Blk_18-Rebuild.png" alt="リビルド">
 
   <h3>⑫ マイクラを起動して確認する</h3>
   <p>Gradle → forgegradle runs → runClient を実行し、ブロックが追加されているか確認します。</p>
+  <img src="images/Blk_19-Runclient.png" alt="ブロック追加例">
+  <p>現在の設定では、クリエイティブでしか表示できない(レシピを登録してないから)ため、以下の設定で起動する</p>
+  <img src="images/Blk_12-Minecraft.png" alt="ブロック追加例">
 
-  <img src="images/block_added_example.png" alt="ブロック追加例">
+  <p>Itemにオリジナルブロックが追加されていることを確認</p>
+  <img src="images/Blk_13-Minecraft.png" alt="ブロック追加例">
   
   <p>これでブロック追加は完了です！</p>
 </div>
