@@ -53,6 +53,40 @@ function toggleMenu() {
     <h2>案① 缶蹴り</h2>
     <p>マイクラ内で缶蹴りができる</p>
     <p>缶、蹴るモーションを追加</p>
+
+  <h2>① Project2KankeriMod.java（MOD本体）</h2>
+  <ul>
+    <li>MOD ID の定義</li>
+    <li>ブロック登録処理</li>
+    <li>イベント登録処理</li>
+  </ul>
+
+  <h2>② block/CanBlock.java</h2>
+  <ul>
+    <li>右クリック → プレイヤーを「見つけた」判定</li>
+    <li>殴る → 「缶を蹴った」判定</li>
+    <li>蹴った瞬間のモーション再生（腕振り・前傾など）</li>
+  </ul>
+
+  <h2>③ system/GameManager.java</h2>
+  <ul>
+    <li>鬼プレイヤーの管理</li>
+    <li>見つかったプレイヤーの管理</li>
+    <li>缶を蹴った時の救出処理</li>
+  </ul>
+
+  <h2>④ capability/PlayerState.java</h2>
+  <ul>
+    <li><code>isOni</code>：鬼かどうかのフラグ</li>
+    <li><code>isFound</code>：見つかったかどうかのフラグ</li>
+  </ul>
+
+  <h2>⑤ event/ModEvents.java</h2>
+  <ul>
+    <li>プレイヤーに <code>PlayerState</code> Capability を付与</li>
+    <li>必要なイベントの登録</li>
+
+イベントバス登録
   </div>
 </div>
 
