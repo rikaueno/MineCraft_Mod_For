@@ -63,7 +63,7 @@ function toggleMenu() {
   <p>src/main/java の中に、以下のようなディレクトリ(フォルダ)を2つ作成</p>
   <p>例: D:\6_Dev\Mods\forge-1.20.1-47.4.13-mdk\src\main\java\com\myproject\project1_ayane_kao</p>
   <p>この場合、存在してない myproject\project1_ayane_kao を作成する</p>
-  <img src="images/block_texture_example.png" alt="ブロックテクスチャ例">
+  <img src="images/Blk_1-MakeFolder.png" alt="folder">
   
 <div class="tip-box">
   <strong>🫛豆知識</strong><br>
@@ -73,9 +73,10 @@ function toggleMenu() {
   <h3>② MODブロック用の Java メインクラス定義ファイルを作成</h3>
   <p>①で作ったディレクトリに、Project1AyaneKaoMod.javaを作成</p>
   <p>IntelliJより、②で作成したディレクトリを右クリック > 新規 > Javaクラス</p>
-  <img src="images/block_texture_example.png" alt="ブロックテクスチャ例">
+  <img src="images/Blk_2-Java.png" alt="Javaクラス作成">
   
   <h3>③ ブロック用の Java ファイル(メインクラス)を作成</h3>
+  <p>IntelliJより、Project1AyaneKaoMod.javaに以下を記載する</p>
   <pre><code class="blue-script">
 package com.myproject.project1_ayane_kao;
 
@@ -96,6 +97,7 @@ public class Project1AyaneKaoMod {
     }
 }
 </code></pre>
+  <img src="images/Blk_14-intellij.png" alt="記載する">
 
   <h3>④ ブロック登録クラスを作成</h3>
   <p>同じ場所にModBlocks.java を作成し、DeferredRegister を使って登録します。</p>
@@ -192,7 +194,14 @@ public class ModCreativeTabs {
   <p> 　├ models/item/ayane_block.json</p>
   <p> 　├ textures/block/ayane_block.png</p>
   <p></p>
-
+  
+<div class="tip-box">
+  <strong>🫛豆知識</strong><br>
+  フォルダやファイルを作成する場合、intellijからやるのがおすすめ
+  慣れたら、⑦-1はintellijで新規 > ディレクトリ で作ってみてね
+  <img src="images/Blk_15-intellij_Dir.png" alt="ディレクトリ">
+</div>
+  
   <h3>⑦-1 新規リソースフォルダを作成</h3>
   <p>src/main/resources の中に、以下のようなディレクトリ(フォルダ)を2つ作成</p>
   <p>例: D:\6_Dev\Mods\forge-1.20.1-47.4.13-mdk\src\main\resources\assets\project1_ayane_kao</p>
@@ -256,8 +265,7 @@ public class ModCreativeTabs {
     <pre><code class="blue-script">
 mod_id=project1_ayane_kao
 mod_name=Project1 Ayane Kao Mod
-mod_license=MIT（変更しない）
-mod_version=1.0.0（変更しない）
+mod_version=1.0.0（初回は変更しないでOK）
 mod_group_id=com.myproject.project1_ayane_kao
 mod_authors=rika（自分の名前へ）
 mod_description=Ayane Kao's first Forge mod.\nThis is my custom block mod.
